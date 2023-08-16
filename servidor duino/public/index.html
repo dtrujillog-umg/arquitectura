@@ -1,38 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Selector de Color</title>
+  <title>Control de LED</title>
   <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-  <h1>Selector de Color</h1>
-  <div>
-    <label for="redRange">Rojo:</label>
-    <input type="range" id="redRange" min="0" max="255" value="255">
-  </div>
-  <div>
-    <label for="greenRange">Verde:</label>
-    <input type="range" id="greenRange" min="0" max="255" value="255">
-  </div>
-  <div>
-    <label for="blueRange">Azul:</label>
-    <input type="range" id="blueRange" min="0" max="255" value="0">
-  </div>
+  <h1>Control de LED</h1>
+  <button id="onButton">Encender LED</button>
+  <button id="offButton">Apagar LED</button>
+
   <script>
     const socket = io();
 
-    // Escuchar cambios en los controles deslizantes
-    document.getElementById('redRange').addEventListener('input', updateColor);
-    document.getElementById('greenRange').addEventListener('input', updateColor);
-    document.getElementById('blueRange').addEventListener('input', updateColor);
+    // Manejar el evento de clic en el botón de encendido
+    document.getElementById('onButton').addEventListener('click', () => {
+      socket.emit('led', 'ON');
+    });
 
-    // Función para enviar los valores al servidor
-    function updateColor() {
-      const redValue = document.getElementById('redRange').value;
-      const greenValue = document.getElementById('greenRange').value;
-      const blueValue = document.getElementById('blueRange').value;
-      socket.emit('color', { red: redValue, green: greenValue, blue: blueValue });
-    }
+    // Manejar el evento de clic en el botón de apagado
+    document.getElementById('offButton').addEventListener('click', () => {
+      socket.emit('led', 'OFF');
+    });
   </script>
 </body>
 </html>
