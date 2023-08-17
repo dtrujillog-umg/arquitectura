@@ -5,21 +5,34 @@
   <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
+  <br>
+  <h1>sala</h1>
   <h1>Control de LED</h1>
-  <button id="onButton">Encender LED</button>
-  <button id="offButton">Apagar LED</button>
+  <button id="onButton1">Encender LED</button>
+  <button id="offButton1">Apagar LED</button>
+<br>
+<h1>Cocina</h1>
+<button id="onButton2">Encender LED</button>
+<button id="offButton2">Apagar LED</button>
 
+<br>
   <script>
     const socket = io();
 
     // Manejar el evento de clic en el botón de encendido
-    document.getElementById('onButton').addEventListener('click', () => {
-      socket.emit('led', 'ON');
+    document.getElementById('onButton1').addEventListener('click', () => {
+      socket.emit('led1', 'ON');
+    });
+    document.getElementById('onButton2').addEventListener('click', () => {
+      socket.emit('led2', 'ON');
     });
 
     // Manejar el evento de clic en el botón de apagado
-    document.getElementById('offButton').addEventListener('click', () => {
-      socket.emit('led', 'OFF');
+    document.getElementById('offButton1').addEventListener('click', () => {
+      socket.emit('led1', 'OFF');
+    });
+    document.getElementById('offButton2').addEventListener('click', () => {
+      socket.emit('led2', 'OFF');
     });
   </script>
 </body>

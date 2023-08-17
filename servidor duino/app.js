@@ -17,11 +17,17 @@ const port = new SerialPort(arduinoPort, {
 io.on('connection', (socket) => {
   console.log('Un cliente se ha conectado');
 
-  // Escuchar el evento 'led' enviado por el cliente
-  socket.on('led', (data) => {
-    console.log('Comando LED:', data);
-    // Enviar el comando de encendido o apagado del LED al Arduino a través del puerto serial
-    const command = data === 'ON' ? 'ON\n' : 'OFF\n';
+  // Escuchar el evento 'led1' enviado por el cliente para el primer LED
+  socket.on('led1', (data) => {
+    console.log('Comando LED 1:', data);
+    const command = data === 'ON' ? 'ON1\n' : 'OFF1\n';
+    enviarComandoSerial(command);
+  });
+
+  // Escuchar el evento 'led2' enviado por el cliente para el segundo LED
+  socket.on('led2', (data) => {
+    console.log('Comando LED 2:', data);
+    const command = data === 'ON' ? 'ON2\n' : 'OFF2\n';
     enviarComandoSerial(command);
   });
 
