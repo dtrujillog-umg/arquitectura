@@ -8,7 +8,7 @@ const SerialPort = require('serialport');
 app.use(express.static(__dirname + '/public'));
 
 // Conexión al puerto serial del Arduino (ajusta el nombre del puerto según tu configuración)
-const arduinoPort = 'COM4'; // Cambia esto al puerto correcto
+const arduinoPort = 'COM3'; // Cambia esto al puerto correcto
 const port = new SerialPort(arduinoPort, {
   baudRate: 9600
 });
