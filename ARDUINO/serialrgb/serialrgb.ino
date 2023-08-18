@@ -1,9 +1,13 @@
+#include <Servo.h>
+
 const int ledPin1 = 2;
 const int ledPin2 = 3;
 const int ledPin3 = 4;
 const int ledPin4 = 5;
 const int ledPin5 = 6;
 const int ledPin6 = 7;
+Servo servo1;
+Servo servo2;
 
 void setup() {
   pinMode(ledPin1, OUTPUT);
@@ -12,6 +16,10 @@ void setup() {
   pinMode(ledPin4, OUTPUT);
   pinMode(ledPin5, OUTPUT);
   pinMode(ledPin6, OUTPUT);
+  
+  servo1.attach(8);  // Conecta el servo al pin 8
+  servo2.attach(9);  // Conecta el servo al pin 9
+
   Serial.begin(9600);
 }
 
@@ -43,5 +51,14 @@ void loop() {
       digitalWrite(ledPin6, HIGH);
     } else if (command == "OFF6") {
       digitalWrite(ledPin6, LOW);
-    }}
+    } else if (command == "OPEN1") {
+      servo1.write(90);  // Gira el servo1 a 90 grados
+    } else if (command == "CLOSE1") {
+      servo1.write(0);   // Gira el servo1 a 0 grados
+    } else if (command == "OPEN2") {
+      servo2.write(90);  // Gira el servo2 a 90 grados
+    } else if (command == "CLOSE2") {
+      servo2.write(0);   // Gira el servo2 a 0 grados
+    }
+  }
 }
