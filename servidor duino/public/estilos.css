@@ -1,0 +1,61 @@
+.contenedor {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+    margin: 0 auto;
+    border: PowderBlue 5px double;
+    border-radius: 20px;
+    background: linear-gradient(30deg, crimson, sienna, royalblue, indianred, purple);
+}
+
+div {
+    color: rgb(2, 5, 5);
+}
+
+.titulo {
+    text-align: center;
+    padding: 8px;
+}
+
+.titulo1 {
+    text-align: center;
+    padding: 8px;
+}
+
+.titulo2 {
+    text-align: center;
+    padding: 8px;
+}
+
+.titulo3 {
+    text-align: center;
+    padding: 8px;
+}
+
+.titulo4 {
+    text-align: center;
+    padding: 8px;
+}
+
+.titulo5 {
+    text-align: center;
+    padding: 8px;
+}
+
+.titulo6 {
+    text-align: center;
+    padding: 8px;
+}
+
+button {
+    display: block;
+    padding: 1rem 1rem;
+    width: 150px;
+    margin-right: 3px;
+    margin: auto;
+    background-color: rgb(120, 225, 225);
+    color: black;
+}

@@ -8,7 +8,7 @@ const SerialPort = require("serialport");
 app.use(express.static(__dirname + "/public"));
 
 // Conexión al puerto serial del Arduino (ajusta el nombre del puerto según tu configuración)
-const arduinoPort = "COM4"; // Cambia esto al puerto correcto
+const arduinoPort = "COM3"; // Cambia esto al puerto correcto
 const port = new SerialPort(arduinoPort, {
   baudRate: 9600,
 });
@@ -44,13 +44,13 @@ io.on("connection", (socket) => {
     const command = data === "ON" ? "ON4\n" : "OFF4\n";
     enviarComandoSerial(command);
   });
-    // Escuchar el evento 'led5' enviado por el cliente para el segundo LED
-    socket.on("led5", (data) => {
-      console.log("Comando LED 5:", data);
-      const command = data === "ON" ? "ON5\n" : "OFF5\n";
-      enviarComandoSerial(command);
-    });
-      // Escuchar el evento 'led6' enviado por el cliente para el segundo LED
+  // Escuchar el evento 'led5' enviado por el cliente para el segundo LED
+  socket.on("led5", (data) => {
+    console.log("Comando LED 5:", data);
+    const command = data === "ON" ? "ON5\n" : "OFF5\n";
+    enviarComandoSerial(command);
+  });
+  // Escuchar el evento 'led6' enviado por el cliente para el segundo LED
   socket.on("led6", (data) => {
     console.log("Comando LED 6:", data);
     const command = data === "ON" ? "ON6\n" : "OFF6\n";

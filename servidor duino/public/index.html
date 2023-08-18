@@ -4,24 +4,46 @@
 <head>
   <title>Control de LED</title>
   <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="estilos.css" />
+
 </head>
 
 <body>
-  <br>
-  <h1>sala</h1>
-  <h1>Control de LED</h1>
-  <button id="onButton1">Encender LED</button>
-  <button id="offButton1">Apagar LED</button>
-  <br>
-  <h1>Cocina</h1>
-  <button id="onButton2">Encender LED</button>
-  <button id="offButton2">Apagar LED</button>
-  <br>
-  <h1>cuarto1</h1>
-  <button id="onButton3">Encender LED</button>
-  <button id="offButton3">Apagar LED</button>
-  <br>
-  <hr>
+  <div class="contenedor">
+    <br>
+    <h1 class="titulo">CONTROL</h1>
+    <hr>
+    <h1 class="titulo1">Sala</h1>
+    <button id="onButton1">Encender LED</button>
+    <button id="offButton1">Apagar LED</button>
+    <br>
+    <hr>
+    <h1 class="titulo2">Cocina</h1>
+    <button id="onButton2">Encender LED</button>
+    <button id="offButton2">Apagar LED</button>
+    <br>
+    <hr>
+    <h1 class="titulo3">Cuarto 1</h1>
+    <button id="onButton3">Encender LED</button>
+    <button id="offButton3">Apagar LED</button>
+    <br>
+    <hr>
+    <h1 class="titulo4">Cuarto 2</h1>
+    <button id="onButton4">Encender LED</button>
+    <button id="offButton4">Apagar LED</button>
+    <br>
+    <hr>
+    <h1 class="titulo5">Casa del Perrito</h1>
+    <button id="onButton5">Encender LED</button>
+    <button id="offButton5">Apagar LED</button>
+    <br>
+    <hr>
+    <h1 class="titulo6">Garaje</h1>
+    <button id="onButton6">Encender LED</button>
+    <button id="offButton6">Apagar LED</button>
+
+  </div>
+
   <script>
     const socket = io();
 
@@ -37,6 +59,17 @@
       socket.emit('led3', 'ON');
     });
 
+    document.getElementById('onButton4').addEventListener('click', () => {
+      socket.emit('led4', 'ON');
+    });
+
+    document.getElementById('onButton5').addEventListener('click', () => {
+      socket.emit('led5', 'ON');
+    });
+    document.getElementById('onButton6').addEventListener('click', () => {
+      socket.emit('led6', 'ON');
+    });
+
     // Manejar el evento de clic en el botón de apagado
     document.getElementById('offButton1').addEventListener('click', () => {
       socket.emit('led1', 'OFF');
@@ -46,6 +79,18 @@
     });
     document.getElementById('offButton3').addEventListener('click', () => {
       socket.emit('led3', 'OFF');
+    });
+
+
+
+    document.getElementById('offButton4').addEventListener('click', () => {
+      socket.emit('led4', 'OFF');
+    });
+    document.getElementById('offButton5').addEventListener('click', () => {
+      socket.emit('led5', 'OFF');
+    });
+    document.getElementById('offButton6').addEventListener('click', () => {
+      socket.emit('led6', 'OFF');
     });
   </script>
 </body>
