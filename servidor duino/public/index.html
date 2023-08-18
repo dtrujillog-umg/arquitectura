@@ -1,98 +1,121 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Control de LED</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
 
-<head>
-  <title>Control de LED</title>
-  <script src="/socket.io/socket.io.js"></script>
-  <link rel="stylesheet" href="estilos.css" />
+  <body>
+    <div class="contenedor">
+      <br />
+      <h1 class="titulo">CONTROL</h1>
+      <hr />
+      <h1 class="titulo1">Sala</h1>
+      <button id="onButton1">Encender LED</button>
+      <button id="offButton1">Apagar LED</button>
+      <br />
+      <hr />
+      <h1 class="titulo2">Cocina</h1>
+      <button id="onButton2">Encender LED</button>
+      <button id="offButton2">Apagar LED</button>
+      <br />
+      <hr />
+      <h1 class="titulo3">Cuarto 1</h1>
+      <button id="onButton3">Encender LED</button>
+      <button id="offButton3">Apagar LED</button>
+      <br />
+      <hr />
+      <h1 class="titulo4">Cuarto 2</h1>
+      <button id="onButton4">Encender LED</button>
+      <button id="offButton4">Apagar LED</button>
+      <br />
+      <hr />
+      <h1 class="titulo5">Casa del Perrito</h1>
+      <button id="onButton5">Encender LED</button>
+      <button id="offButton5">Apagar LED</button>
+      <br />
+      <hr />
+      <h1 class="titulo6">Garaje</h1>
+      <button id="onButton6">Encender LED</button>
+      <button id="offButton6">Apagar LED</button>
 
-</head>
+      <hr />
+      <h1 class="titulo7">Control de Servos</h1>
+      <button id="openServo1Button">Abrir Servo 1</button>
+      <button id="closeServo1Button">Cerrar Servo 1</button>
+      <br />
+      <button id="openServo2Button">Abrir Servo 2</button>
+      <button id="closeServo2Button">Cerrar Servo 2</button>
+    </div>
 
-<body>
-  <div class="contenedor">
-    <br>
-    <h1 class="titulo">CONTROL</h1>
-    <hr>
-    <h1 class="titulo1">Sala</h1>
-    <button id="onButton1">Encender LED</button>
-    <button id="offButton1">Apagar LED</button>
-    <br>
-    <hr>
-    <h1 class="titulo2">Cocina</h1>
-    <button id="onButton2">Encender LED</button>
-    <button id="offButton2">Apagar LED</button>
-    <br>
-    <hr>
-    <h1 class="titulo3">Cuarto 1</h1>
-    <button id="onButton3">Encender LED</button>
-    <button id="offButton3">Apagar LED</button>
-    <br>
-    <hr>
-    <h1 class="titulo4">Cuarto 2</h1>
-    <button id="onButton4">Encender LED</button>
-    <button id="offButton4">Apagar LED</button>
-    <br>
-    <hr>
-    <h1 class="titulo5">Casa del Perrito</h1>
-    <button id="onButton5">Encender LED</button>
-    <button id="offButton5">Apagar LED</button>
-    <br>
-    <hr>
-    <h1 class="titulo6">Garaje</h1>
-    <button id="onButton6">Encender LED</button>
-    <button id="offButton6">Apagar LED</button>
+    <script>
+      const socket = io();
 
-  </div>
+      // Manejar el evento de clic en el botón de encendido
+      document.getElementById("onButton1").addEventListener("click", () => {
+        socket.emit("led1", "ON");
+      });
+      document.getElementById("onButton2").addEventListener("click", () => {
+        socket.emit("led2", "ON");
+      });
 
-  <script>
-    const socket = io();
+      document.getElementById("onButton3").addEventListener("click", () => {
+        socket.emit("led3", "ON");
+      });
 
-    // Manejar el evento de clic en el botón de encendido
-    document.getElementById('onButton1').addEventListener('click', () => {
-      socket.emit('led1', 'ON');
-    });
-    document.getElementById('onButton2').addEventListener('click', () => {
-      socket.emit('led2', 'ON');
-    });
+      document.getElementById("onButton4").addEventListener("click", () => {
+        socket.emit("led4", "ON");
+      });
 
-    document.getElementById('onButton3').addEventListener('click', () => {
-      socket.emit('led3', 'ON');
-    });
+      document.getElementById("onButton5").addEventListener("click", () => {
+        socket.emit("led5", "ON");
+      });
+      document.getElementById("onButton6").addEventListener("click", () => {
+        socket.emit("led6", "ON");
+      });
 
-    document.getElementById('onButton4').addEventListener('click', () => {
-      socket.emit('led4', 'ON');
-    });
+      // Manejar el evento de clic en el botón de apagado
+      document.getElementById("offButton1").addEventListener("click", () => {
+        socket.emit("led1", "OFF");
+      });
+      document.getElementById("offButton2").addEventListener("click", () => {
+        socket.emit("led2", "OFF");
+      });
+      document.getElementById("offButton3").addEventListener("click", () => {
+        socket.emit("led3", "OFF");
+      });
 
-    document.getElementById('onButton5').addEventListener('click', () => {
-      socket.emit('led5', 'ON');
-    });
-    document.getElementById('onButton6').addEventListener('click', () => {
-      socket.emit('led6', 'ON');
-    });
+      document.getElementById("offButton4").addEventListener("click", () => {
+        socket.emit("led4", "OFF");
+      });
+      document.getElementById("offButton5").addEventListener("click", () => {
+        socket.emit("led5", "OFF");
+      });
+      document.getElementById("offButton6").addEventListener("click", () => {
+        socket.emit("led6", "OFF");
 
-    // Manejar el evento de clic en el botón de apagado
-    document.getElementById('offButton1').addEventListener('click', () => {
-      socket.emit('led1', 'OFF');
-    });
-    document.getElementById('offButton2').addEventListener('click', () => {
-      socket.emit('led2', 'OFF');
-    });
-    document.getElementById('offButton3').addEventListener('click', () => {
-      socket.emit('led3', 'OFF');
-    });
+ // Manejar el evento de clic en el botón para abrir Servo 1
+ document.getElementById('openServo1Button').addEventListener('click', () => {
+    socket.emit('openServo1');
+  });
 
+  // Manejar el evento de clic en el botón para cerrar Servo 1
+  document.getElementById('closeServo1Button').addEventListener('click', () => {
+    socket.emit('closeServo1');
+  });
 
+  // Manejar el evento de clic en el botón para abrir Servo 2
+  document.getElementById('openServo2Button').addEventListener('click', () => {
+    socket.emit('openServo2');
+  });
 
-    document.getElementById('offButton4').addEventListener('click', () => {
-      socket.emit('led4', 'OFF');
-    });
-    document.getElementById('offButton5').addEventListener('click', () => {
-      socket.emit('led5', 'OFF');
-    });
-    document.getElementById('offButton6').addEventListener('click', () => {
-      socket.emit('led6', 'OFF');
-    });
-  </script>
-</body>
+  // Manejar el evento de clic en el botón para cerrar Servo 2
+  document.getElementById('closeServo2Button').addEventListener('click', () => {
+    socket.emit('closeServo2');
+  });
 
+      });
+    </script>
+  </body>
 </html>
