@@ -52,7 +52,8 @@ void loop() {
     } else if (command == "OFF6") {
       digitalWrite(ledPin6, LOW);
     } else if (command == "OPEN1") {
-      servo1.write(90);  // Gira el servo1 a 90 grados
+       servo1.write(90);  // Gira el servo1 a 90 grados
+      delay(1000);      // Espera 1 segundo
     } else if (command == "CLOSE1") {
       servo1.write(0);   // Gira el servo1 a 0 grados
     } else if (command == "OPEN2") {

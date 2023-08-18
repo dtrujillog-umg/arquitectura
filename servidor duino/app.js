@@ -51,27 +51,27 @@ io.on("connection", (socket) => {
   });
 
   // Agregar control para los servos
-  socket.on("openServo1", () => {
-    console.log("Abriendo Servo 1");
-    const command = "SERVO1_OPEN\n";
+  socket.on("servo1", (data) => {
+    console.log("Comando servo 1:", data);
+    const command = data === "CLOSE1\n";
     enviarComandoSerial(command);
   });
 
-  socket.on("closeServo1", () => {
+  socket.on("CLOSE1", () => {
     console.log("Cerrando Servo 1");
-    const command = "SERVO1_CLOSE\n";
+    const command = "CLOSE1\n";
     enviarComandoSerial(command);
   });
 
-  socket.on("openServo2", () => {
+  socket.on("OPEN2", () => {
     console.log("Abriendo Servo 2");
-    const command = "SERVO2_OPEN\n";
+    const command = "OPEN2\n";
     enviarComandoSerial(command);
   });
 
-  socket.on("closeServo2", () => {
+  socket.on("CLOSE2", () => {
     console.log("Cerrando Servo 2");
-    const command = "SERVO2_CLOSE\n";
+    const command = "CLOSE2\n";
     enviarComandoSerial(command);
   });
 
