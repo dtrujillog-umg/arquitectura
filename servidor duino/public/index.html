@@ -95,28 +95,32 @@
       document.getElementById("offButton6").addEventListener("click", () => {
         socket.emit("led6", "OFF");
       });
-        // Manejar el evento de clic en el botón para abrir Servo 1
-        document.getElementById("openservo1").addEventListener("click", () => {
-        socket.emit("servo1", "OPEN");
+
+      // Emitir eventos para abrir y cerrar Servo 1
+      document
+        .getElementById("openServo1Button")
+        .addEventListener("click", () => {
+          socket.emit("servo1", "OPEN1"); // Cambiado a "OPEN1"
         });
-        // Manejar el evento de clic en el botón para cerrar Servo 1
-        document.getElementById("closeservo1").addEventListener("click", () => {
-        socket.emit("servo1", "CLOSE");
 
-        // Manejar el evento de clic en el botón para abrir Servo 2
-        document
-          .getElementById("openServo2Button")
-          .addEventListener("click", () => {
-            socket.emit("open2");
-          });
+      document
+        .getElementById("closeServo1Button")
+        .addEventListener("click", () => {
+          socket.emit("servo1", "CLOSE1"); // Cambiado a "CLOSE1"
+        });
 
-        // Manejar el evento de clic en el botón para cerrar Servo 2
-        document
-          .getElementById("closeServo2Button")
-          .addEventListener("click", () => {
-            socket.emit("close2");
-          });
-      });
+      // Emitir eventos para abrir y cerrar Servo 2
+      document
+        .getElementById("openServo2Button")
+        .addEventListener("click", () => {
+          socket.emit("servo2", "OPEN2"); // Cambiado a "OPEN2"
+        });
+
+      document
+        .getElementById("closeServo2Button")
+        .addEventListener("click", () => {
+          socket.emit("servo2", "CLOSE2"); // Cambiado a "CLOSE2"
+        });
     </script>
   </body>
 </html>
